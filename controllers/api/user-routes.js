@@ -53,9 +53,8 @@ router.post("/", (req, res) => {
         req.session.username = dbUserData.username;
         req.session.loggedIn = true;
 
-        const { id, username } = dbUserdata;
-
-        res.json(id, username);
+        const { id, username } = dbUserData;
+        res.json({ id, username });
       });
     })
     .catch((err) => {
@@ -69,7 +68,7 @@ router.post("/login", (req, res) => {
   // expects {username: 'Lernantino', password: 'password123'}
   User.findOne({
     where: {
-      email: req.body.username,
+      user: req.body.username,
     },
   }).then(async (dbUserData) => {
     if (!dbUserData) {

@@ -4,32 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Just Tech News</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
+  <title>The Tech Blog</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/stylesheets/style.css" </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1>
-        <a href="/">Just Tech News</a>
-      </h1>
-      <nav>
+  <header class="mb-4 bg-primary text-light">
+    <nav class="navbar navbar-expand">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-light" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="/dashboard">Profile</a></li>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <li class="nav-item"><button id="logout" class="btn-no-style nav-link text-light">Logout</button></li>
         {{else}}
-        <a href="/login">login</a>
+        <li class="nav-item"><a class="nav-link text-light" href="/login">Login</a></li>
         {{/if}}
-      </nav>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
-  </div>
+      </ul>
+    </nav>
+  </header>
+  
+  <h1 class="text-center fw-bold bg-primary text-light">Tech Blog - The best place for you tech needs!</h1>
+  
+  <main class="container bg-warning">
+    {{{ body }}}
+  </main>
+<footer>
+   <h5 class="text-center fw-bold ">Fueled by coffee and lack of sleep!</h1>
+</footer>
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
